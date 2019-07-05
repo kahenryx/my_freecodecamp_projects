@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="function.js"></script>
+    <title>JS Calculator</title>
+</head>
+<body>
+<div class="main">
+		<!--  -->
+    <div class="topper">
+        <svg viewBox="0 0 500 500">
+        <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+         />
+        <text width="500">
+            <textPath xlink:href="#curve">
+                The Calculating Egg
+            </textPath>
+        </text>
+        </svg>
+        <a href="www.niteowler.com" title="The NiteOwler" target="_blank">
+          <img src="img/NiteOwlerIconSite.png" width="70" height="75" alt=""/>
+        </a>
+        <p>By Kareem A. Henry</p>
+    </div>
+    <form class="calc egg" name="calc" id="calc">
+        <input type="text" name="screen" placeholder="0" id="scrn"/>
+        <!--  -->
+          <input type="button" class="btn" id="clr" value="Clear" onClick="allClr()">
+          <input type="button" class="btn" value="←" onClick="bksp()">
+          <input type="button" class="btn" value="%" onClick="oper('%')">
+          <input type="button" class="btn" value="7" onClick="fixNum('7')">
+          <input type="button" class="btn" value="8" onClick="fixNum('8')">
+          <input type="button" class="btn" value="9" onClick="fixNum('9')">
+          <input type="button" class="btn" value="÷" onClick="oper('/')">
+          <input type="button" class="btn" value="4" onClick="fixNum('4')">
+          <input type="button" class="btn" value="5" onClick="fixNum('5')">
+          <input type="button" class="btn" value="6" onClick="fixNum('6')">
+          <input type="button" class="btn" value="×" onClick="oper('*')">
+          <input type="button" class="btn" value="1" onClick="fixNum('1')">
+          <input type="button" class="btn" value="2" onClick="fixNum('2')">
+          <input type="button" class="btn" value="3" onClick="fixNum('3')">
+          <input type="button" class="btn" value="-" onClick="oper('-')">
+          <input type="button" class="btn" value="." onClick="fixNum('.')">
+          <input type="button" class="btn" value="0" onClick="fixNum('0')">
+          <input type="button" class="btn" value="±" onClick="plsMin()">
+          <input type="button" class="btn" id="add" value="+" onClick="oper('+')">
+          <input type="button" class="btn" id="equl" value="=" onClick="solve()">
+    </form>
+</div>
+</body>
+</html>

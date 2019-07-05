@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The NiteOwler's Clock</title>
+<style>
+body {
+    background-image: url("imgs/moonlight.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #515151;
+   }
+h1   {color: DARKGOLDENROD; text-align: center;}
+#watch img  {
+    width: 550px;
+    }
+@media only screen and (max-width: 768px) {
+        img  {
+            width: ;
+        }
+    }
+#container {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+}
+#watch  {
+     width: 600px;
+     height: 600px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     background: rgba(206,220,231,0.8); /* Old browsers */
+     background: -moz-linear-gradient(top, rgba(206,220,231,0.8) 0%, rgba(89,106,114,0.8) 100%); /* FF3.6-15 */
+     background: -webkit-linear-gradient(top, rgba(206,220,231,0.8) 0%,rgba(89,106,114,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+     background: linear-gradient(to bottom, rgba(206,220,231,0.8) 0%,rgba(89,106,114,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 ); /* IE6-9 */
+     border-radius: 15%;
+     box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+    }
+    #oclock {
+         position: absolute;
+    }
+#Niteowler img  {
+    width: 260px;
+    }
+#Niteowler {
+    position: relative;
+    left: 76px;
+}
+#hour-hand img {width: 60px;}
+#hour-hand  {
+    position: relative;
+    top: -42px;
+    left: -86px;
+    transform-origin: 50% 73%;
+    }
+#minute-hand img {width: 60px;}
+#minute-hand  {
+    position: relative;
+    top: -33px;
+    left: -147px;
+    transform-origin: 50% 60%;
+    }
+#second-hand img {width: 30px;}
+#second-hand  {
+    position: relative;
+    top: -58px;
+    left: -191px;
+    transform-origin: 50% 68%;
+    }
+</style>
+</head>
+<body>
+       <div id="container">
+                 <h1>The Nite's Watch</h1>
+               <div id="watch">
+                     <div id="oclock"><img src="imgs/OwlClock.png" alt="Owl Clock"></div>
+                     <div id="Niteowler"><img src="imgs/NiteOwlerIcon.png" alt="NiteOwler Icon"></div>
+                     <div id="hour-hand"><img src="imgs/OwlHand_Hour.png" alt="Hour Hand"></div>
+                     <div id="minute-hand"><img src="imgs/OwlHand_Minute.png" alt="Minute Hand"></div>
+                     <div id="second-hand"><img src="imgs/OwlHand_Second.png" alt="Second Hand"></div>
+                    <!-- <div id="OwlClock" ></div> -->
+               </div>
+       </div>
+  <script>
+  //Let page load before begining CLOCK
+      window.onload = function ()
+      {
+      //Gather the DOM elements(clock hands) needed to display time.
+        var seconds = document.getElementById('second-hand'),
+            minutes = document.getElementById('minute-hand'),
+            hours = document.getElementById('hour-hand');
+      //Get information from the day to measure the current time.
+        var date = new Date(),
+            s = date.getSeconds(),
+            m = date.getMinutes(),
+            h = date.getHours();
+      //Calculate circular intervals using degrees divided by time
+        var hrHand = (h*360/12)+(m*(360/60)/12),
+            minHand = (m*360/60)+(s*(360/60)/60),
+            secHand = s*360/60;
+      //Use the information gathered to manipulate DOM elements to display time.
+        function CLOCK()
+        {
+            //
+            secHand = secHand+6;
+            minHand = minHand+(6/60);
+            hrHand = hrHand+(3/360);
+            console.log(secHand);
+            console.log(minHand);
+            console.log(hrHand);
+            //Set DOM elements to rotate according tothe time vs degrees intervals calculated from above.
+            seconds.style.transform = "rotate(" + secHand + "deg)";
+            minutes.style.transform = "rotate(" + minHand + "deg)";
+            hours.style.transform = "rotate(" + hrHand + "deg)";
+        }
+        //SEt clock to intiate once page is loaded.
+        var intervals = setInterval(CLOCK, 1000);
+      }
+  </script>
+</body>
+</html>
